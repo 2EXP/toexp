@@ -1,19 +1,17 @@
 package io.github.toexp.openfeign;
 
 import feign.Feign;
-//import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.web.servlet.WebMvcRegistrations;
 import org.springframework.cloud.openfeign.FeignClient;
-//import org.springframework.cloud.openfeign.FeignClientSpecification;
+import org.springframework.cloud.openfeign.FeignClientSpecification;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.AnnotatedElementUtils;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
 @Configuration
-@ConditionalOnClass({Feign.class})
-//@ConditionalOnBean({FeignClientSpecification.class})
+@ConditionalOnBean({FeignClientSpecification.class})
 public class FeignWebMvcEnhancedAutoConfiguration {
     @Bean
     public WebMvcRegistrations feignWebRegistrations() {

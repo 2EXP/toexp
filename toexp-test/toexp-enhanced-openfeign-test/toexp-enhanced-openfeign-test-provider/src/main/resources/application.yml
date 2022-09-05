@@ -1,0 +1,6 @@
+server:
+  port: 28080
+
+spring:
+  application:
+    name: test-provider

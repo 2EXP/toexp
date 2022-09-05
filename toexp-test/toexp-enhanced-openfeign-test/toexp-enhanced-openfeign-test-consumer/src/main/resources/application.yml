@@ -1,0 +1,6 @@
+server:
+  port: 28081
+
+spring:
+  application:
+    name: test-consumer

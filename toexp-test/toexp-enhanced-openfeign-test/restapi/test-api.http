@@ -1,0 +1,5 @@
+### consumer api
+GET http://localhost:28081/consumer/hello
+
+### provider api
+GET http://localhost:28080/provider/hello

@@ -15,5 +15,5 @@ but you can implement your own idempotent strategy by reimplementing the interfa
 ## toexp-enhanced-openfeign
 
 Provides a workaround for openfeign to support `@RequestMapping` on interfaces.
-Let rpc calls work like the `Dubbo` way, the api provider declare the api interface in a seperate api package, 
+Let `openfeign` api calls work like the `Dubbo` way, the api provider declare the api interface in a seperate api package, 
 and the consumer can use the api interface directly by importing it in the maven pom. 

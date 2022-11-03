@@ -16,7 +16,7 @@
 
 package io.github.toexp.idempotent;
 
-import io.github.toexp.idempotent.api.IIdempotentProvider;
+import io.github.toexp.idempotent.api.IdempotentProvider;
 import io.github.toexp.idempotent.context.IdempotentContext;
 import io.github.toexp.idempotent.dataobject.IdempotentDo;
 import io.github.toexp.idempotent.enums.IdempotentStateEnum;
@@ -30,7 +30,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
 
-public class IdempotentProvider implements IIdempotentProvider {
+public class IdempotentProviderImpl implements IdempotentProvider {
     private static final String CACHE_KEY = "toexp:idempotent";
 
     private static final ThreadLocal<IdempotentDo> IDEMPOTENT_THREAD_LOCAL = ThreadLocal.withInitial(IdempotentDo::new);

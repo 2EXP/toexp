@@ -16,8 +16,12 @@
 
 package io.github.toexp.idempotent.api;
 
-import org.aspectj.lang.JoinPoint;
+public interface IdempotentProvider {
+    Object checkAndGetIdempotent(Object context);
 
-public interface IIdempotentContextProvider {
-    Object idempotentContext(JoinPoint jp);
+    void handleIdempotentSuccess(Object context, Object result);
+
+    Object handleIdempotentException(Object context, Throwable e) throws Throwable;
+
+    void handleIdempotentFinally(Object context);
 }

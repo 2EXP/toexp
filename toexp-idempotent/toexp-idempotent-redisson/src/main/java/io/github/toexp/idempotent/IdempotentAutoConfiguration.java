@@ -16,8 +16,8 @@
 
 package io.github.toexp.idempotent;
 
-import io.github.toexp.idempotent.api.IIdempotentContextProvider;
-import io.github.toexp.idempotent.api.IIdempotentProvider;
+import io.github.toexp.idempotent.api.IdempotentContextProvider;
+import io.github.toexp.idempotent.api.IdempotentProvider;
 import io.github.toexp.idempotent.aspect.IdempotentAspect;
 import io.github.toexp.idempotent.parser.AnnotationParser;
 import io.github.toexp.idempotent.parser.IAnnotationParser;
@@ -31,20 +31,20 @@ import org.springframework.context.annotation.Configuration;
 @AutoConfigureAfter(RedisAutoConfiguration.class)
 public class IdempotentAutoConfiguration {
     @Bean
-    @ConditionalOnMissingBean(IIdempotentContextProvider.class)
-    public IIdempotentContextProvider idempotentContextProvider() { return new IdempotentContextProvider(); }
+    @ConditionalOnMissingBean(IdempotentContextProvider.class)
+    public IdempotentContextProvider idempotentContextProvider() { return new IdempotentContextProviderImpl(); }
 
     @Bean
-    @ConditionalOnMissingBean(IIdempotentProvider.class)
-    public IIdempotentProvider idempotentProvider() { return new IdempotentProvider(); }
+    @ConditionalOnMissingBean(IdempotentProvider.class)
+    public IdempotentProvider idempotentProvider() { return new IdempotentProviderImpl(); }
 
     @Bean
     @ConditionalOnMissingBean(IAnnotationParser.class)
     public IAnnotationParser annotationParser() { return new AnnotationParser(); }
 
     @Bean
-    public IdempotentAspect idempotentAspect(IIdempotentContextProvider idempotentContextProvider,
-                                             IIdempotentProvider idempotentProvider) {
+    public IdempotentAspect idempotentAspect(IdempotentContextProvider idempotentContextProvider,
+                                             IdempotentProvider idempotentProvider) {
         return new IdempotentAspect(idempotentContextProvider, idempotentProvider);
     }
 }

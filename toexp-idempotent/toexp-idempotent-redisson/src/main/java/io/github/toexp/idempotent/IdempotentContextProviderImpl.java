@@ -17,7 +17,7 @@
 package io.github.toexp.idempotent;
 
 import io.github.toexp.idempotent.annotation.Idempotent;
-import io.github.toexp.idempotent.api.IIdempotentContextProvider;
+import io.github.toexp.idempotent.api.IdempotentContextProvider;
 import io.github.toexp.idempotent.context.IdempotentContext;
 import io.github.toexp.idempotent.exception.EmptyKeyIdempotentException;
 import io.github.toexp.idempotent.parser.IAnnotationParser;
@@ -27,7 +27,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.lang.reflect.Method;
 
-public class IdempotentContextProvider implements IIdempotentContextProvider {
+public class IdempotentContextProviderImpl implements IdempotentContextProvider {
     @Autowired
     IAnnotationParser annotationParser;
 

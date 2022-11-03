@@ -16,20 +16,20 @@
 
 package io.github.toexp.idempotent.aspect;
 
-import io.github.toexp.idempotent.api.IIdempotentContextProvider;
-import io.github.toexp.idempotent.api.IIdempotentProvider;
+import io.github.toexp.idempotent.api.IdempotentContextProvider;
+import io.github.toexp.idempotent.api.IdempotentProvider;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 
 @Aspect
 public class IdempotentAspect {
-    IIdempotentContextProvider idempotentKeyProvider;
+    IdempotentContextProvider idempotentKeyProvider;
 
-    IIdempotentProvider idempotentProvider;
+    IdempotentProvider idempotentProvider;
 
-    public IdempotentAspect(IIdempotentContextProvider keyProvider,
-                            IIdempotentProvider provider) {
+    public IdempotentAspect(IdempotentContextProvider keyProvider,
+                            IdempotentProvider provider) {
         idempotentKeyProvider = keyProvider;
         idempotentProvider = provider;
     }
